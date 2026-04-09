@@ -1,1 +1,1 @@
-# TP_Wordle_Solver
+# Wordle_Solver
