@@ -11,6 +11,7 @@ void filtrerMotsSansLettres();
 void filtrerMotsAvecSousChaine();
 
 int main() {
+    
     FILE *f = fopen("ressource/bdd_wordle.txt", "r");
     
     if (f == NULL) {
@@ -34,18 +35,23 @@ int main() {
     }
     
     fclose(f);
+    system("clear");
     
-    printf("=== FILTREUR DE MOTS WORDLE ===\n");
-    printf("Base de données : %d mots de 5 lettres chargés\n\n", nb_mots);
+    printf(" \33[1;37m=== FILTREUR DE MOTS WORDLE ===\33[0m\n");
+    printf(" \33[1;36mBase de données : %d mots de 5 lettres chargés\33[0m\n\n", nb_mots);
+    system("sleep 2");
     
     while (1) {
-        printf("\n--- MENU PRINCIPAL ---\n"
+        
+        printf("\n \33[1;34m --- MENU PRINCIPAL ---\33[0m\n"
                 "                           \n"
                 "1. Filtrer les mots qui contiennent des lettres spécifiques\n"
                 "2. Filtrer les mots qui ne contiennent pas certaines lettres\n"
                 "3. Filtrer les mots qui contiennent une sous-chaîne (ex: 'at', 'ing')\n"
                 "4. Filtrer les mots qui contiennent et ne contiennent pas certaines lettres\n"
                 "5. Quitter\n"
+
+
                 "Votre choix : "
             );
         
@@ -92,12 +98,17 @@ int main() {
                         count++;
                     }
                 }
-                printf("\nNombre de mots trouvés : %d\n", count);
+                printf("\n \33[1;31mNombre de mots trouvés : %d\33[0m\n", count);
                 break;
             }
                 
             case 5:
+                system("clear");
+                
                 printf("Au revoir !\n");
+                
+                system("sleep 2 && clear");
+
                 return 0;
                 
             default:
@@ -119,7 +130,7 @@ void filtrerMotsAvecLettres(char mots[MAX_MOTS][MAX_TAILLE], int nb_mots, char l
         }
     }
     
-    printf("\nNombre de mots trouvés : %d\n", count);
+    printf("\n \33[1;31mNombre de mots trouvés : %d\33[0m\n", count);
 }
 
 void filtrerMotsSansLettres(char mots[MAX_MOTS][MAX_TAILLE], int nb_mots, char lettres[]) {
@@ -133,7 +144,7 @@ void filtrerMotsSansLettres(char mots[MAX_MOTS][MAX_TAILLE], int nb_mots, char l
         }
     }
     
-    printf("\nNombre de mots trouvés : %d\n", count);
+    printf("\n \33[1;31mNombre de mots trouvés : %d\33[0m\n", count);
 }
 
 void filtrerMotsAvecSousChaine(char mots[MAX_MOTS][MAX_TAILLE], int nb_mots, char sub[]) {
@@ -147,5 +158,5 @@ void filtrerMotsAvecSousChaine(char mots[MAX_MOTS][MAX_TAILLE], int nb_mots, cha
         }
     }
     
-    printf("\nNombre de mots trouvés : %d\n", count);
+    printf("\n \33[1;31mNombre de mots trouvés : %d\33[0m\n", count);
 }
